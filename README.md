@@ -9,10 +9,16 @@
 -ServiceStack.Redis’i kullanabilmek için ServiceStack bilmemize gerek yok.
 
 
+# Redis Geospatial İşlemleri için Redis Versiyon Yükseltme
+
+Geospatial işlemlerin yapılabilmesi için redis versiyonunu en az 3.2'ye yükseltmeniz gerekmektedir. 
+Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis klasörünün içerisine yapıştırmanız gerekmektedir.
+İşleme başlamadan önce redisi durdurmanız ve işlem tamamlandıktan sonra tekrar başlatmanız gerekmektedir.
+
 # Redis Geospatial İşlemleri
 
 -Redis GeoSpatial veri kümeleri aslında Redis'teki SortedSets'tir, bunun sırrı yoktur. 
--Temel olarak, boylam / enlem koordinatları gibi coğrafi konumsal verileri Redis'e depolamak için kolay bir yol sağlar. 
+-Temel olarak, boylam / enlem koordinatları gibi coğrafi konumsal verileri Redis'e depolamak için kolay bir yol sağlar.
 -Redis'in Geo Spatial verileri için sağladığı bazı komutlara bakalım.
 
 
