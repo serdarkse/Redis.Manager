@@ -69,3 +69,10 @@ Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis
             //GeoUnit.Kilometers => buffer değerinin hangi türden olacağını belirtir.
             //-1 => kaç tane sonuç döndüreceğini belirtir. -1 yazılırsa tüm sonuçları listeler.
             
+
+# POINT – LINESTRING  - MULTILINESTRING Kesişim işlemleri
+Bir POINT örnek alacak  olursak POINT (32.84211996 39.86889102) verimizin sadece 1 tane x-y koordinatı var. 
+Ancak MULTILINESTRING veya LINESTRING verilerde ise LINESTRING (32.85511416 39.92015196, 32.85503496 39.92009904) birden fazla x-y koordinatı bulunmakta.
+Bu gibi veriler için kesişim işlemi yaptırmak için şu yöntem kullanılabilir. 
+Birden fazla x-y koordinatı olan verilerde x-y koordinatları gruplandırılarak aynı MI_PRINX ile redise atılabilir. 
+Bu sayede analiz yapıldığında kontrol işlemleri sağlandığında buffer alanı içinde kalan bizim parçaladığımız mulilinestring veya linestring verilerimiz için de kesişim işlemlerini gerçekleştirebiliriz.
