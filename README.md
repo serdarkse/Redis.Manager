@@ -1,4 +1,4 @@
-# Redis.Manager
+# Redis.Manager with .Net Core 
 
 # C# ve Redis
 
