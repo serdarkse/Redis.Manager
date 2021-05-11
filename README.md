@@ -2,24 +2,24 @@
 
 # C# ve Redis
 
--Redis implementasyonu için kullanacağımız open source paketin ismi ServiceStack.Redis. 
--Bu paket bizim client uygulamamızı Redis sunucu ile konuşturacak ve komutları çalıştıracak bir kütüphane. 
--ServiceStack sadece Redis implementasyonu sağlamıyor. 
--Redis’in yanı sıra ORMLite ve diğer hizmetleri de sunuyorlar fakat biz Redis adaptörünü kullanacağız. 
--ServiceStack.Redis’i kullanabilmek için ServiceStack bilmemize gerek yok.
+    -Redis implementasyonu için kullanacağımız open source paketin ismi ServiceStack.Redis.
+    -Bu paket bizim client uygulamamızı Redis sunucu ile konuşturacak ve komutları çalıştıracak bir kütüphane.
+    -ServiceStack sadece Redis implementasyonu sağlamıyor.
+    -Redis’in yanı sıra ORMLite ve diğer hizmetleri de sunuyorlar fakat biz Redis adaptörünü kullanacağız.
+    -ServiceStack.Redis’i kullanabilmek için ServiceStack bilmemize gerek yok.
 
 
 # Redis Geospatial İşlemleri için Redis Versiyon Yükseltme
 
-Geospatial işlemlerin yapılabilmesi için redis versiyonunu en az 3.2'ye yükseltmeniz gerekmektedir. 
-Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis klasörünün içerisine yapıştırmanız gerekmektedir.
-İşleme başlamadan önce redisi durdurmanız ve işlem tamamlandıktan sonra tekrar başlatmanız gerekmektedir.
+    Geospatial işlemlerin yapılabilmesi için redis versiyonunu en az 3.2'ye yükseltmeniz gerekmektedir. 
+    Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis klasörünün içerisine yapıştırmanız gerekmektedir.
+    İşleme başlamadan önce redisi durdurmanız ve işlem tamamlandıktan sonra tekrar başlatmanız gerekmektedir.
 
 # Redis Geospatial İşlemleri
 
--Redis GeoSpatial veri kümeleri aslında Redis'teki SortedSets'tir, bunun sırrı yoktur. 
--Temel olarak, boylam / enlem koordinatları gibi coğrafi konumsal verileri Redis'e depolamak için kolay bir yol sağlar.
--Redis'in Geo Spatial verileri için sağladığı bazı komutlara bakalım.
+    -Redis GeoSpatial veri kümeleri aslında Redis'teki SortedSets'tir, bunun sırrı yoktur. 
+    -Temel olarak, boylam / enlem koordinatları gibi coğrafi konumsal verileri Redis'e depolamak için kolay bir yol sağlar.
+    -Redis'in Geo Spatial verileri için sağladığı bazı komutlara bakalım.
 
 
 # Koordinat Verisi Ekleme: GEOADD  : 
@@ -39,15 +39,15 @@ Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis
 
 
 # Redise aktarılan verinin koordinat bilgisini bulma
-  var position = redis.GeoPosition("SAMSUN", "AMİSOS TEPESİ");
-            //SAMSUN keyinin içinde olan AMİSOS TEPESİ değerinin koordinat bilgilerini döner
+            var position = redis.GeoPosition("SAMSUN", "AMİSOS TEPESİ");
+              //SAMSUN keyinin içinde olan AMİSOS TEPESİ değerinin koordinat bilgilerini döner
 
 # İki nokta arasındaki mesafeyi bulma
-  double? distance = redis.GeoDistance("BASARSOFT", "BALGAT", "ISTANBUL", GeoUnit.Kilometers);
+            double? distance = redis.GeoDistance("BASARSOFT", "BALGAT", "ISTANBUL", GeoUnit.Kilometers);
 
 # Verilen bir KEY’deki değer baz alınarak 10km çapındaki 100 veriyi getir
-    double? distance = redis.GeoDistance("SAMSUN", "LİMAN", "BANDIRMA GEMİSİ", GeoUnit.Kilometers);
-            //LİMAN ile BANDIRMA GEMİSİ arasındaki mesafeyi KİLOMETRE/METRE/FEET/MİLE cinsinden verir.
+            double? distance = redis.GeoDistance("SAMSUN", "LİMAN", "BANDIRMA GEMİSİ", GeoUnit.Kilometers);
+              //LİMAN ile BANDIRMA GEMİSİ arasındaki mesafeyi KİLOMETRE/METRE/FEET/MİLE cinsinden verir.
 
 # Verilen X,Y koordinatlarını baz alınarak 5000km çapındaki tüm verileri getir
 
@@ -68,7 +68,7 @@ Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis
             //-1 => kaç tane sonuç döndüreceğini belirtir. -1 yazılırsa tüm sonuçları listeler.
             
 
-# POINT – LINESTRING  - MULTILINESTRING Kesişim işlemleri
+# POINT – LINESTRING  - MULTILINESTRING Kesişim işlemleri 
   Bir POINT örnek alacak  olursak POINT (32.84211996 39.86889102) verimizin sadece 1 tane x-y koordinatı var. 
   Ancak MULTILINESTRING veya LINESTRING verilerde ise LINESTRING (32.85511416 39.92015196, 32.85503496 39.92009904) birden fazla x-y koordinatı bulunmakta.
   Bu gibi veriler için kesişim işlemi yaptırmak için şu yöntem kullanılabilir. 
