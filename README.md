@@ -23,19 +23,17 @@ Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis
 
 
 # Koordinat Verisi Ekleme: GEOADD  : 
-  GEOADD ile istediğim bir Dictionary Key’e ait bir kayıt oluşturabiliriz. Eğer verilen Key değeri mevcut değilse yeni bir tane oluşturulur.
+    GEOADD ile istediğim bir Dictionary Key’e ait bir kayıt oluşturabiliriz. Eğer verilen Key değeri mevcut değilse yeni bir tane oluşturulur.
+
 # Uzaklık Bulma: GEODIST : 
-  Bir Key altında bulunan iki üyenin birbirine uzaklığını döndürür.
+     Bir Key altında bulunan iki üyenin birbirine uzaklığını döndürür.
+
 # X Kilometreden Yakın Yerler: GEORADIUS :
-  Belirtilen koordinata olan mesafesi parametre olarak geçilen çaptan küçük olan üyeleri döndürür.
+     Belirtilen koordinata olan mesafesi parametre olarak geçilen çaptan küçük olan üyeleri döndürür.
 
 
 # Veri ekleme
-  redis.GeoAdd("SAMSUN",  // Key \n
-                41.28671123560004,  // Latitude (x)
-                36.34773724569423,  // Longtitude (y)
-                "LİMAN");           // Value
-
+            redis.GeoAdd("SAMSUN",  41.28671123560004, 36.34773724569423, "LİMAN");          
             redis.GeoAdd("SAMSUN", 41.31989253684319, 36.32390889787106, "AMİSOS TEPESİ");
             redis.GeoAdd("SAMSUN", 41.273772001419474, 36.36754815316191, "BANDIRMA GEMİSİ");
 
@@ -71,8 +69,8 @@ Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis
             
 
 # POINT – LINESTRING  - MULTILINESTRING Kesişim işlemleri
-Bir POINT örnek alacak  olursak POINT (32.84211996 39.86889102) verimizin sadece 1 tane x-y koordinatı var. 
-Ancak MULTILINESTRING veya LINESTRING verilerde ise LINESTRING (32.85511416 39.92015196, 32.85503496 39.92009904) birden fazla x-y koordinatı bulunmakta.
-Bu gibi veriler için kesişim işlemi yaptırmak için şu yöntem kullanılabilir. 
-Birden fazla x-y koordinatı olan verilerde x-y koordinatları gruplandırılarak aynı MI_PRINX ile redise atılabilir. 
-Bu sayede analiz yapıldığında kontrol işlemleri sağlandığında buffer alanı içinde kalan bizim parçaladığımız mulilinestring veya linestring verilerimiz için de kesişim işlemlerini gerçekleştirebiliriz.
+  Bir POINT örnek alacak  olursak POINT (32.84211996 39.86889102) verimizin sadece 1 tane x-y koordinatı var. 
+  Ancak MULTILINESTRING veya LINESTRING verilerde ise LINESTRING (32.85511416 39.92015196, 32.85503496 39.92009904) birden fazla x-y koordinatı bulunmakta.
+  Bu gibi veriler için kesişim işlemi yaptırmak için şu yöntem kullanılabilir. 
+  Birden fazla x-y koordinatı olan verilerde x-y koordinatları gruplandırılarak aynı MI_PRINX ile redise atılabilir. 
+  Bu sayede analiz yapıldığında kontrol işlemleri sağlandığında buffer alanı içinde kalan bizim parçaladığımız mulilinestring veya linestring verilerimiz için de kesişim       işlemlerini gerçekleştirebiliriz.
