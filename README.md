@@ -31,7 +31,7 @@ Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis
 
 
 # Veri ekleme
-  redis.GeoAdd("SAMSUN",  // Key 
+  redis.GeoAdd("SAMSUN",  // Key \n
                 41.28671123560004,  // Latitude (x)
                 36.34773724569423,  // Longtitude (y)
                 "LİMAN");           // Value
