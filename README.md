@@ -11,25 +11,26 @@
 
 # Redis Geospatial İşlemleri için Redis Versiyon Yükseltme
 
-    Geospatial işlemlerin yapılabilmesi için redis versiyonunu en az 3.2'ye yükseltmeniz gerekmektedir. 
-    Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis klasörünün içerisine yapıştırmanız gerekmektedir.
-    İşleme başlamadan önce redisi durdurmanız ve işlem tamamlandıktan sonra tekrar başlatmanız gerekmektedir.
+    -Geospatial işlemlerin yapılabilmesi için redis versiyonunu en az 3.2'ye yükseltmeniz gerekmektedir.
+    -Bunun için redis 3.2.rar klasöründeki tüm elemanları C:\Program Files\Redis klasörünün içerisine yapıştırmanız gerekmektedir.
+    -İşleme başlamadan önce redisi durdurmanız ve işlem tamamlandıktan sonra tekrar başlatmanız gerekmektedir.
 
 # Redis Geospatial İşlemleri
 
-    -Redis GeoSpatial veri kümeleri aslında Redis'teki SortedSets'tir, bunun sırrı yoktur. 
+    -Redis GeoSpatial veri kümeleri aslında Redis'teki SortedSets'tir, bunun sırrı yoktur.
     -Temel olarak, boylam / enlem koordinatları gibi coğrafi konumsal verileri Redis'e depolamak için kolay bir yol sağlar.
     -Redis'in Geo Spatial verileri için sağladığı bazı komutlara bakalım.
 
 
 # Koordinat Verisi Ekleme: GEOADD  : 
-    GEOADD ile istediğim bir Dictionary Key’e ait bir kayıt oluşturabiliriz. Eğer verilen Key değeri mevcut değilse yeni bir tane oluşturulur.
+    -GEOADD ile istediğim bir Dictionary Key’e ait bir kayıt oluşturabiliriz. 
+    -Eğer verilen Key değeri mevcut değilse yeni bir tane oluşturulur.
 
 # Uzaklık Bulma: GEODIST : 
-     Bir Key altında bulunan iki üyenin birbirine uzaklığını döndürür.
+     -Bir Key altında bulunan iki üyenin birbirine uzaklığını döndürür.
 
 # X Kilometreden Yakın Yerler: GEORADIUS :
-     Belirtilen koordinata olan mesafesi parametre olarak geçilen çaptan küçük olan üyeleri döndürür.
+     -Belirtilen koordinata olan mesafesi parametre olarak geçilen çaptan küçük olan üyeleri döndürür.
 
 
 # Veri ekleme
@@ -69,8 +70,8 @@
             
 
 # POINT – LINESTRING  - MULTILINESTRING Kesişim işlemleri 
-  Bir POINT örnek alacak  olursak POINT (32.84211996 39.86889102) verimizin sadece 1 tane x-y koordinatı var. 
-  Ancak MULTILINESTRING veya LINESTRING verilerde ise LINESTRING (32.85511416 39.92015196, 32.85503496 39.92009904) birden fazla x-y koordinatı bulunmakta.
-  Bu gibi veriler için kesişim işlemi yaptırmak için şu yöntem kullanılabilir. 
-  Birden fazla x-y koordinatı olan verilerde x-y koordinatları gruplandırılarak aynı MI_PRINX ile redise atılabilir. 
-  Bu sayede analiz yapıldığında kontrol işlemleri sağlandığında buffer alanı içinde kalan bizim parçaladığımız mulilinestring veya linestring verilerimiz için de kesişim       işlemlerini gerçekleştirebiliriz.
+    -Bir POINT örnek alacak  olursak POINT (32.84211996 39.86889102) verimizin sadece 1 tane x-y koordinatı var.
+    -Ancak MULTILINESTRING veya LINESTRING verilerde ise LINESTRING (32.85511416 39.92015196, 32.85503496 39.92009904) birden fazla x-y koordinatı bulunmakta.
+    -Bu gibi veriler için kesişim işlemi yaptırmak için şu yöntem kullanılabilir. 
+    -Birden fazla x-y koordinatı olan verilerde x-y koordinatları gruplandırılarak aynı MI_PRINX ile redise atılabilir. 
+    -Bu sayede analiz yapıldığında kontrol işlemleri sağlandığında buffer alanı içinde kalan bizim parçaladığımız mulilinestring veya linestring verilerimiz için de kesişim       işlemlerini gerçekleştirebiliriz.
