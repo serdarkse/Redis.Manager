@@ -44,7 +44,7 @@
               //SAMSUN keyinin içinde olan AMİSOS TEPESİ değerinin koordinat bilgilerini döner
 
 # İki nokta arasındaki mesafeyi bulma
-            double? distance = redis.GeoDistance("BASARSOFT", "BALGAT", "ISTANBUL", GeoUnit.Kilometers);
+            double? distance = redis.GeoDistance("SAMSUN", "LİMAN", "AMİSOS TEPESİ", GeoUnit.Kilometers);
 
 # Verilen bir KEY’deki değer baz alınarak 10km çapındaki 100 veriyi getir
             double? distance = redis.GeoDistance("SAMSUN", "LİMAN", "BANDIRMA GEMİSİ", GeoUnit.Kilometers);
